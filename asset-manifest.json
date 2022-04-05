@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/star-match-game/static/css/main.852da932.css",
+    "main.js": "/star-match-game/static/js/main.df5a4b32.js",
+    "static/js/787.6ae748aa.chunk.js": "/star-match-game/static/js/787.6ae748aa.chunk.js",
+    "index.html": "/star-match-game/index.html",
+    "main.852da932.css.map": "/star-match-game/static/css/main.852da932.css.map",
+    "main.df5a4b32.js.map": "/star-match-game/static/js/main.df5a4b32.js.map",
+    "787.6ae748aa.chunk.js.map": "/star-match-game/static/js/787.6ae748aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.852da932.css",
+    "static/js/main.df5a4b32.js"
+  ]
+}
