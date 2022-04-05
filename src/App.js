@@ -3,13 +3,21 @@ import "./App.css";
 import { utils, colors } from "./utils/utils";
 import PlayNumber from "./components/PlayNumber";
 import StarsDisplay from "./components/StarsDisplay";
+import PlayAgain from "./components/PlayAgain";
 
 function App() {
-  const [stars, setStarts] = useState(utils.random(1, 9));
+  const [stars, setStars] = useState(utils.random(1, 9));
   const [availabeNums, setavailabeNums] = useState(utils.range(1, 9));
   const [candidateNums, setcandidateNums] = useState([]);
 
   const candidatesAreWrong = utils.sum(candidateNums) > stars;
+  const gameIsDone = availabeNums.length === 0;
+
+  const resetGame = () => {
+    setStars(utils.random(1, 9));
+    setavailabeNums(utils.range(1, 9));
+    setcandidateNums([]);
+  };
 
   const numberStatus = (number) => {
     if (!availabeNums.includes(number)) {
@@ -36,7 +44,7 @@ function App() {
       const newAvailableNums = availabeNums.filter(
         (available) => !newCandidatesNums.includes(available)
       );
-      setStarts(utils.randomSumIn(newAvailableNums, 9));
+      setStars(utils.randomSumIn(newAvailableNums, 9));
       setavailabeNums(newAvailableNums);
       setcandidateNums([]);
     }
@@ -49,7 +57,11 @@ function App() {
       </div>
       <div className="body">
         <div className="left">
-          <StarsDisplay count={stars} />
+          {gameIsDone ? (
+            <PlayAgain onClick={resetGame} />
+          ) : (
+            <StarsDisplay count={stars} />
+          )}
         </div>
         <div className="right">
           {utils.range(1, 9).map((number) => (
