@@ -1,7 +1,8 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
 import { utils, colors } from "./utils/utils";
-import React, { useState } from "react";
+import PlayNumber from "./components/PlayNumber";
+import StarsDisplay from "./components/StarsDisplay";
 
 function App() {
   const [stars, setStarts] = useState(utils.random(1, 9));
@@ -12,15 +13,11 @@ function App() {
       </div>
       <div className="body">
         <div className="left">
-          {utils.range(1, stars).map((starId) => (
-            <div key={starId} className="star"></div>
-          ))}
+          <StarsDisplay count={stars} />
         </div>
         <div className="right">
           {utils.range(1, 9).map((number) => (
-            <button key={number} className="number">
-              {number}
-            </button>
+            <PlayNumber key={number} number={number} />
           ))}
         </div>
       </div>
